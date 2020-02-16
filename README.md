@@ -38,3 +38,10 @@ You can also adjust their size.
 If you need to record a video of the test running, mark this test with the @video annotation
 
 Then a video of the test execution will be attached to the report in the TearDown section, which you can download and watch.
+
+![@video](https://user-images.githubusercontent.com/25115868/74603595-50f1ec00-50c6-11ea-86cf-86856e7fdf3d.png)
+
+![download](https://user-images.githubusercontent.com/25115868/74603600-5cddae00-50c6-11ea-8099-934457cc4274.png)
+
+![player](https://user-images.githubusercontent.com/25115868/74603610-6c5cf700-50c6-11ea-9881-084aa0cb6de4.png)
+
