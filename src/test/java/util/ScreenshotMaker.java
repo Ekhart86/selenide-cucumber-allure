@@ -29,7 +29,7 @@ public class ScreenshotMaker {
         } catch (IOException e) {
             logger.error(e.getMessage());
         }
-        Allure.getLifecycle().addAttachment("Скриншот", "image/png", "png", fileContent);
+        Allure.getLifecycle().addAttachment("Screenshot", "image/png", "png", fileContent);
 
     }
 
