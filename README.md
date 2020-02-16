@@ -34,3 +34,7 @@ You can also adjust their size.
 ![screen_001](https://user-images.githubusercontent.com/25115868/74601464-c8685100-50af-11ea-9c33-efb4fa4a1a02.png)
 
 ![screen_002](https://user-images.githubusercontent.com/25115868/74601470-d8803080-50af-11ea-977c-3086eeb720d9.png)
+
+If you need to record a video of the test running, mark this test with the @video annotation
+
+Then a video of the test execution will be attached to the report in the TearDown section, which you can download and watch.
