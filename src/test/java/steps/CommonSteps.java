@@ -10,6 +10,5 @@ public class CommonSteps {
     @When("go back to the previous page")
     public void goBackToThePreviousPage() {
         back();
-        makeScreenShoot();
     }
 }

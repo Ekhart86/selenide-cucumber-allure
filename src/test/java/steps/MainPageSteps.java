@@ -10,19 +10,16 @@ public class MainPageSteps {
 
     @When("go to the {string} category")
     public void weGoToTheCategory(String text) {
-        makeScreenShoot();
         mainPage.clickCategory(text);
     }
 
     @Given("opened home page of ad site")
     public void openedHomePageOfAdSite() {
-        makeScreenShoot();
         mainPage.checkURL();
     }
 
     @When("enter {string} in the search bar and press Enter")
     public void enterInTheSearchBarAndPressEnter(String text) {
         mainPage.searchValue(text);
-        makeScreenShoot();
     }
 }

@@ -9,7 +9,6 @@ public class SectionSteps {
 
     @And("select {int} product from the list in the section")
     public void selectProductFromTheListInTheSection(int number) {
-        makeScreenShoot();
         sectionPage.selectProduct(number);
     }
 }
