@@ -13,12 +13,18 @@ headless - 0 or 1. default - 0
 Generate allure report - mvn allure:serve
 
 
+
+The project uses Spring Context to interact with application pages
+
 Java 8 and Maven 3.6+ must be installed on your computer before running tests.
 
 To run tests, you need to download the project, 
 go to the project folder, and call command in the terminal:
 
-mvn clean test allure:serve
+mvn clean test 
+
+mvn allure:serve
+
 
 The first run of the tests will take a little longer, 
 since Maven will download all the dependencies that the project needs.
