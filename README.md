@@ -34,7 +34,9 @@ System.setProperty("wdm.proxy", "url");
 System.setProperty("wdm.proxyUser", "user");
 
 System.setProperty("wdm.proxyPass", "password");
+
 -------------------------------------------------------------------------------------------------------
+
 After running the tests, the local Allure server will be automatically launched,
 with a report on running the tests.
 
@@ -42,6 +44,7 @@ A screenshot of this step will be attached to each step in the report.
 If this is not necessary, you can remove the creation of screenshots. 
 You can also adjust their size.
 ![cucumber_parallel](https://user-images.githubusercontent.com/25115868/91716912-2c102280-eb99-11ea-83e7-38e6c14f8919.PNG)
+
 -------------------------------------------------------------------------------------------------------
 If you need to record a video of the test running, mark this test with the @video annotation
 
