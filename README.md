@@ -1,5 +1,18 @@
 # selenide-cucumber4-allure2 project
 
+Run test - mvn clean test -Dbrowser=chrome -Dheadless=1 
+
+or just mvn clean test
+
+parameters:
+
+browser - chrome or firefox. default - chrome
+
+headless - 0 or 1. default - 0
+
+Generate allure report - mvn allure:serve
+
+
 Java 8 and Maven 3.6+ must be installed on your computer before running tests.
 
 To run tests, you need to download the project, 
@@ -30,18 +43,21 @@ with a report on running the tests.
 A screenshot of this step will be attached to each step in the report. 
 If this is not necessary, you can remove the creation of screenshots. 
 You can also adjust their size.
-
-![screen_001](https://user-images.githubusercontent.com/25115868/74601464-c8685100-50af-11ea-9c33-efb4fa4a1a02.png)
-
-![screen_002](https://user-images.githubusercontent.com/25115868/74601470-d8803080-50af-11ea-977c-3086eeb720d9.png)
+![cucumber_parallel](https://user-images.githubusercontent.com/25115868/91716912-2c102280-eb99-11ea-83e7-38e6c14f8919.PNG)
 
 If you need to record a video of the test running, mark this test with the @video annotation
 
+![video](https://user-images.githubusercontent.com/25115868/91716946-3c280200-eb99-11ea-9f80-e5fd9cd8172d.PNG)
+
 Then a video of the test execution will be attached to the report in the TearDown section, which you can download and watch.
+![video-2](https://user-images.githubusercontent.com/25115868/91716970-45b16a00-eb99-11ea-9a00-248ddef905a9.PNG)
 
-![@video](https://user-images.githubusercontent.com/25115868/74603595-50f1ec00-50c6-11ea-86cf-86856e7fdf3d.png)
+Video recording is only possible when running tests in a single thread! Remember this!
 
-![download](https://user-images.githubusercontent.com/25115868/74603600-5cddae00-50c6-11ea-8099-934457cc4274.png)
 
-![player](https://user-images.githubusercontent.com/25115868/74603610-6c5cf700-50c6-11ea-9881-084aa0cb6de4.png)
+By default, tests are executed in one thread, if parallel execution is needed, then you need to uncomment the lines in POM.xml. 
+It is possible to set either the exact number of streams or unlimited.
+
+![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
+
 
