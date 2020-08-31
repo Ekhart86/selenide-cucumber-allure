@@ -30,13 +30,11 @@ public class MyScreenRecorder extends ScreenRecorder {
 
     @Override
     protected File createMovieFile(Format fileFormat) throws IOException {
-
         if (!movieFolder.exists()) {
             movieFolder.mkdirs();
         } else if (!movieFolder.isDirectory()) {
             throw new IOException("\"" + movieFolder + "\" is not a directory.");
         }
-
         return new File(movieFolder, name + "." + Registry.getInstance().getExtension(fileFormat));
     }
 

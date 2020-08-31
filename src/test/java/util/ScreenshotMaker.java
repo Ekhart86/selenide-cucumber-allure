@@ -17,7 +17,7 @@ import static util.SizeReducer.resize;
 
 public class ScreenshotMaker {
 
-    private static Logger logger = LoggerFactory.getLogger(ScreenshotMaker.class);
+    private final static Logger logger = LoggerFactory.getLogger(ScreenshotMaker.class);
 
     public static void makeScreenShoot() {
 
@@ -29,7 +29,6 @@ public class ScreenshotMaker {
             logger.error(e.getMessage());
         }
         Allure.getLifecycle().addAttachment("Screenshot", "image/png", "png", fileContent);
-
     }
 
     private static byte[] toByteArrayAutoClosable(BufferedImage image) throws IOException {
