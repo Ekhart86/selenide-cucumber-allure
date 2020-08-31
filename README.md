@@ -12,7 +12,7 @@ headless - 0 or 1. default - 0
 
 Generate allure report - mvn allure:serve
 
-
+-------------------------------------------------------------------------------------------------------
 
 The project uses Spring Context to interact with application pages
 
@@ -25,7 +25,7 @@ mvn clean test
 
 mvn allure:serve
 
-
+-------------------------------------------------------------------------------------------------------
 The first run of the tests will take a little longer, 
 since Maven will download all the dependencies that the project needs.
 
@@ -42,7 +42,7 @@ System.setProperty("wdm.proxy", "url");
 System.setProperty("wdm.proxyUser", "user");
 
 System.setProperty("wdm.proxyPass", "password");
-
+-------------------------------------------------------------------------------------------------------
 After running the tests, the local Allure server will be automatically launched,
 with a report on running the tests.
 
@@ -50,7 +50,7 @@ A screenshot of this step will be attached to each step in the report.
 If this is not necessary, you can remove the creation of screenshots. 
 You can also adjust their size.
 ![cucumber_parallel](https://user-images.githubusercontent.com/25115868/91716912-2c102280-eb99-11ea-83e7-38e6c14f8919.PNG)
-
+-------------------------------------------------------------------------------------------------------
 If you need to record a video of the test running, mark this test with the @video annotation
 
 ![video](https://user-images.githubusercontent.com/25115868/91716946-3c280200-eb99-11ea-9f80-e5fd9cd8172d.PNG)
@@ -60,7 +60,7 @@ Then a video of the test execution will be attached to the report in the TearDow
 
 Video recording is only possible when running tests in a single thread! Remember this!
 
-
+--------------------------------------------------------------------------------------------------------
 By default, tests are executed in one thread, if parallel execution is needed, then you need to uncomment the lines in POM.xml. 
 It is possible to set either the exact number of streams or unlimited.
 
