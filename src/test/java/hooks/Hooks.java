@@ -13,9 +13,9 @@ import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.clearBrowserCookies;
+import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static io.cucumber.core.event.Status.PASSED;
-import static runner.RunnerTest.BASE_URL;
 import static util.ScreenshotMaker.makeScreenShoot;
 
 
@@ -23,11 +23,10 @@ public class Hooks {
     private static Logger logger = LoggerFactory.getLogger(Hooks.class);
 
     @Before
-    public void startScenario(Scenario scenario){
+    public void startScenario(Scenario scenario) {
         logger.info("------------------------------------------------------------");
         logger.info("Run scenario - '" + scenario.getName() + "'");
         logger.info("------------------------------------------------------------");
-        open(BASE_URL);
     }
 
     @After
