@@ -60,4 +60,4 @@ It is possible to set either the exact number of streams or unlimited.
 
 ![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
 
-
+Parallel execution is possible only at the level of script files.
