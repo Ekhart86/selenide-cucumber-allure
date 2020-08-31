@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class SizeReducer {
 
-    private static Logger logger = LoggerFactory.getLogger(SizeReducer.class);
+    private final static Logger logger = LoggerFactory.getLogger(SizeReducer.class);
 
     /**
      * The method changes the image size
@@ -36,6 +36,5 @@ public class SizeReducer {
         }
         return resized;
     }
-
 }
 

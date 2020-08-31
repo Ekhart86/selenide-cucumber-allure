@@ -20,7 +20,7 @@ import static util.ScreenshotMaker.makeScreenShoot;
 
 
 public class Hooks {
-    private static Logger logger = LoggerFactory.getLogger(Hooks.class);
+    private final static Logger logger = LoggerFactory.getLogger(Hooks.class);
 
     @Before
     public void startScenario(Scenario scenario) {
@@ -46,7 +46,6 @@ public class Hooks {
         logger.info("Start recording the test video " + scenario.getName());
         MyScreenRecorder.startRecording(scenario.getName());
     }
-
 
     @After("@video")
     public static void attachVideo(Scenario scenario) throws Exception {

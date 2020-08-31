@@ -1,6 +1,5 @@
 package runner;
 
-
 import com.codeborne.selenide.Configuration;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -8,16 +7,15 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-
 @CucumberOptions(
         features = "src/test/resources/features/",
-        glue = {"steps", "hooks"},
+        extraGlue = {"steps", "hooks"},
         tags = {"@all"},
-        plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"}
-)
+        plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"})
+
 public class RunnerTest {
     /**
-     * Значения переменных передаются из командной строки при запуске тестов
+     * Значения browser и headless передаются из командной строки при запуске тестов
      * mvn test -Dbrowser=chrome -Dheadless=1
      */
     @BeforeClass
