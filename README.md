@@ -1,8 +1,8 @@
-# selenide-cucumber4-allure2 project
+     selenide-cucumber4-allure2 project
 
-Run test - mvn clean test -Dbrowser=chrome -Dheadless=1 
+Run test - ***mvn clean test -Dbrowser=chrome -Dheadless=1***
 
-or just mvn clean test
+or just ***mvn clean test***
 
 parameters:
 
@@ -10,9 +10,9 @@ browser - chrome or firefox. default - chrome
 
 headless - 0 or 1. default - 0
 
-Generate allure report - mvn allure:serve
+Generate allure report - ***mvn allure:serve***
 
--------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 
 The project uses Spring Context to interact with application pages
 
@@ -29,11 +29,11 @@ The Internet must be available on the computer without restrictions.
 If your computer has Internet access via Proxy server, 
 you must add the following lines to the project settings:
 
-System.setProperty("wdm.proxy", "url");
+**System.setProperty("wdm.proxy", "url");**
 
-System.setProperty("wdm.proxyUser", "user");
+**System.setProperty("wdm.proxyUser", "user");**
 
-System.setProperty("wdm.proxyPass", "password");
+**System.setProperty("wdm.proxyPass", "password");**
 
 -------------------------------------------------------------------------------------------------------
 
