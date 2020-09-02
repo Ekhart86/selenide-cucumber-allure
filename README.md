@@ -1,8 +1,8 @@
      UI autotest project using Cucumber, Selenide, Allure, SpringBootTest with the ability to run in parallel.
 
-Run test - ***mvn clean test -Dbrowser=chrome -Dheadless=1***
+Run test - **mvn clean test -Dbrowser=chrome -Dheadless=1**
 
-or just ***mvn clean test***
+or just **mvn clean test**
 
 parameters:
 
@@ -10,7 +10,7 @@ browser - chrome or firefox. default - chrome
 
 headless - 0 or 1. default - 0
 
-Generate allure report - ***mvn allure:serve***
+Generate allure report - **mvn allure:serve**
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -60,5 +60,9 @@ By default, tests are executed in one thread, if parallel execution is needed, t
 It is possible to set either the exact number of streams or unlimited.
 
 ![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
+
+It is also possible to pass commands to run in parallel via CLI maven
+
+**mvn clean test -Dparallel=methods -DthreadCount=2**
 
 Parallel execution is possible only at the level of script files.
