@@ -1,4 +1,4 @@
-     selenide-cucumber4-allure2 project
+     UI autotest project using Cucumber, Selenide, Allure, SpringBootTest with the ability to run in parallel.
 
 Run test - ***mvn clean test -Dbrowser=chrome -Dheadless=1***
 
