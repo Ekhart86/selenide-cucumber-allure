@@ -63,5 +63,4 @@ public class Hooks {
         clearBrowserLocalStorage();
         clearBrowserCookies();
     }
-
 }

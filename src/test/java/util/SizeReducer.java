@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class SizeReducer {
-
     private final static Logger logger = LoggerFactory.getLogger(SizeReducer.class);
 
     /**
@@ -18,7 +17,6 @@ public class SizeReducer {
      * @param percentage 1.0 original size
      */
     public static BufferedImage resize(File picture, double percentage) {
-
         BufferedImage resized = null;
         BufferedImage image;
         try {
