@@ -6,9 +6,17 @@ or just **mvn clean test**
 
 parameters:
 
-browser - chrome or firefox. default - chrome
+browser **-Dbrowser=chrome** | (default chrome)
 
-headless - 0 or 1. default - 0
+headless **-Dheadless=1** | (default 0)
+
+remote execute  **-Dremote=true** | (default false)
+
+remote new url  **-DremoteUrl=http://192.168.0.110** | (default set base remote url)
+
+run parallel    **-Dparallel=method** (default false)
+
+how parallel    **-DthreadCount=2** or -DuseUnlimitedThreads=true (default false)
 
 Generate allure report - **mvn allure:serve**
 
@@ -60,9 +68,5 @@ By default, tests are executed in one thread, if parallel execution is needed, t
 It is possible to set either the exact number of streams or unlimited.
 
 ![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
-
-It is also possible to pass commands to run in parallel via CLI maven
-
-**mvn clean test -Dparallel=methods -DthreadCount=2**
 
 Parallel execution is possible only at the level of script files.
