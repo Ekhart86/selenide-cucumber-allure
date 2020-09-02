@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 
 public class RunnerTest {
     /**
-     * Значения browser и headless передаются из командной строки при запуске тестов
+     * Browser and headless values ​​are passed from the command line when running tests
      * mvn test -Dbrowser=chrome -Dheadless=1
      */
     @BeforeClass

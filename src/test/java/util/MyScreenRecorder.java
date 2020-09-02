@@ -17,13 +17,8 @@ public class MyScreenRecorder extends ScreenRecorder {
     public static ScreenRecorder screenRecorder;
     public String name;
 
-    public MyScreenRecorder(GraphicsConfiguration cfg,
-                            Rectangle captureArea,
-                            Format fileFormat,
-                            Format screenFormat,
-                            Format mouseFormat,
-                            Format audioFormat,
-                            File movieFolder, String methodName) throws IOException, AWTException {
+    public MyScreenRecorder(GraphicsConfiguration cfg, Rectangle captureArea, Format fileFormat,
+                            Format screenFormat, Format mouseFormat, Format audioFormat, File movieFolder, String methodName) throws IOException, AWTException {
         super(cfg, captureArea, fileFormat, screenFormat, mouseFormat, audioFormat, movieFolder);
         this.name = methodName;
     }

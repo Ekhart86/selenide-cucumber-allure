@@ -30,7 +30,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <!-- Зависимости Junit 5 специально исключены так как конфликтуют с Junit 4 который использует Cucumber-->
+            <!-- Junit 5 dependencies are specifically excluded as they conflict with Junit 4 which uses Cucumber -->
             <exclusions>
                 <exclusion>
                     <artifactId>junit-jupiter</artifactId>

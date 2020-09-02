@@ -8,11 +8,10 @@ import springbootcucumber.pages.LoginPage;
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 
 /**
- * В этом классе описываются станицы приложения
- * которые будут использованы в тестах
- * Внедрение страниц в step классы происходит с помощью DI Spring
- * SCOPE_CUCUMBER_GLUE - сообщает Cucumber удалить этот bean
- * и воссоздать новый, если необходимо, после каждого сценария
+ * This class describes the application pages which will be used in tests
+ * Injection of pages into step classes is done using DI Spring
+ * SCOPE_CUCUMBER_GLUE - Tells Cucumber to remove this bean
+ * And recreate a new one if necessary after each scenario
  */
 
 @Configuration

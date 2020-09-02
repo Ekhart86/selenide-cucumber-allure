@@ -7,10 +7,10 @@ import springbootcucumber.config.PageBeansConfig;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
- * В RunnerTest указывается extraGlue = {"steps", "hooks"}
- * Который указывает на этот пакет, в котором должен содержаться
- * хотя бы один класс помеченый аннотацией @SpringBootTest(classes = PageBeansConfig.class)
- * с указанием конфигурационного класса с бинами страниц
+ * RunnerTest specifies extraGlue = {"steps", "hooks"}
+ * Which indicates this package which should contain
+ * at least one class marked with SpringBootTest annotation
+ * indicating the configuration class with page bins
  */
 @SpringBootTest(classes = PageBeansConfig.class)
 public class BaseSteps extends PageSet {
