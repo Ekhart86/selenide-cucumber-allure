@@ -1,7 +1,7 @@
 package steps;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import springbootcucumber.pages.LoginPage;
+import app.pages.LoginPage;
 
 /**
  * A set of pages to be used in tests

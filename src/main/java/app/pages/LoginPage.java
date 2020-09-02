@@ -1,4 +1,4 @@
-package springbootcucumber.pages;
+package app.pages;
 
 import com.codeborne.selenide.SelenideElement;
 

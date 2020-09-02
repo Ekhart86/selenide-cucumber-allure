@@ -2,7 +2,7 @@ package steps;
 
 import io.cucumber.java.ru.Когда;
 import org.springframework.boot.test.context.SpringBootTest;
-import springbootcucumber.config.PageBeansConfig;
+import app.config.PageBeansConfig;
 
 import static com.codeborne.selenide.Selenide.open;
 

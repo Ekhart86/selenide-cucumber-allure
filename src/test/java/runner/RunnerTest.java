@@ -15,14 +15,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
         plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"})
 
 public class RunnerTest {
-
-    /**
-     * IP of the remote machine. Where is Selenoid deployed
-     */
     private static String baseRemoteUrl = "http://192.168.0.109";
 
     /**
-     * Browser and headless values and remote execution ​​are passed from the command line when running tests
+     * Browser, remote mode and headless options
+     * ​​are passed from the command line when running tests
      * mvn clean test
      * -Dbrowser=chrome
      * -Dheadless=1
@@ -31,7 +28,6 @@ public class RunnerTest {
      * -Dparallel=methods
      * -DthreadCount=2 or -DuseUnlimitedThreads=true
      */
-
     @BeforeClass
     public static void initSettings() {
         String headless = System.getProperty("headless") == null ? "0" : System.getProperty("headless");

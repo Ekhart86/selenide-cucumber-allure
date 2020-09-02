@@ -30,7 +30,7 @@ public class Hooks {
     }
 
     @After
-    public static void checkScenarioResult(Scenario scenario) throws Exception {
+    public static void checkScenarioResult(Scenario scenario) {
         logger.info("------------------------------------------------------------");
         System.out.println("Scenario '" + scenario.getName() + "' - " + scenario.getStatus());
         if (!scenario.getStatus().equals(PASSED)) {
