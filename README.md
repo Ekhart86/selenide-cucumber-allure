@@ -1,10 +1,9 @@
-     UI autotest project using Cucumber, Selenide, Allure, SpringBootTest with the ability to run in parallel.
+#UI autotest project using Cucumber, Selenide, Allure, SpringBootTest with the ability to run in parallel.
 
-Run test - **mvn clean test -Dbrowser=chrome -Dheadless=1**
+Run test - **mvn clean test**
 
-or just **mvn clean test**
 
-parameters:
+Available parameters:
 
 browser **-Dbrowser=chrome** | (default chrome)
 
