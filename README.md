@@ -8,7 +8,7 @@ Run test - **mvn clean test**
 Available parameters:
 
 
-browser **-Dbrowser=chrome** | (default chrome)
+browser **-Dbrowser=firefox** | (default chrome)
 
 headless **-Dheadless=1** | (default 0)
 
@@ -18,7 +18,7 @@ remote new url  **-DremoteUrl=http://192.168.0.110** | (default set base remote 
 
 run parallel    **-Dparallel=method** (default false)
 
-how parallel    **-DthreadCount=2** or -DuseUnlimitedThreads=true (default false)
+how parallel    **-DthreadCount=2** or **-DuseUnlimitedThreads=true** (default false)
 
 Generate allure report - **mvn allure:serve**
 
