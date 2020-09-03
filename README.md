@@ -45,6 +45,7 @@ you must add the following lines to the project settings:
 
 -------------------------------------------------------------------------------------------------------
 By default, tests are executed in one thread, if parallel execution is needed, then you need to uncomment the lines in POM.xml. 
+
 It is possible to set either the exact number of streams or unlimited.
 
 ![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
@@ -53,16 +54,15 @@ Parallel execution is possible only at the level of script files
 
 -------------------------------------------------------------------------------------------------------
 
-After running the tests, the local Allure server will be automatically launched,
-with a report on running the tests.
+After running the tests, the local Allure server will be automatically launched, with a report on running the tests.
 
-A screenshot of this step will be attached to each step in the report. 
-If this is not necessary, you can remove the creation of screenshots. 
-You can also adjust their size.
-![cucumber_parallel](https://user-images.githubusercontent.com/25115868/91716912-2c102280-eb99-11ea-83e7-38e6c14f8919.PNG)
+If the test ends with an error, then a screenshot of the screen will be attached to this test
+
+![ERROR](https://user-images.githubusercontent.com/25115868/92082291-fce1f700-edcc-11ea-8bed-cbe6b38f8b39.PNG)
 
 -------------------------------------------------------------------------------------------------------
 
 If the tests are run on a remote machine in selenoid, then a video of the test execution will be attached to each test.
+
 ![new_video](https://user-images.githubusercontent.com/25115868/92081608-fd2dc280-edcb-11ea-9295-4d9772e11603.PNG)
 --------------------------------------------------------------------------------------------------------
