@@ -20,7 +20,6 @@ public class ScreenshotMaker {
     private final static Logger logger = LoggerFactory.getLogger(ScreenshotMaker.class);
 
     public static void makeScreenShoot() {
-
         File scrFile = ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.FILE);
         byte[] fileContent = new byte[0];
         try {

@@ -87,11 +87,6 @@
             <artifactId>selenide</artifactId>
             <version>5.14.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.stephenc.monte</groupId>
-            <artifactId>monte-screen-recorder</artifactId>
-            <version>0.7.7.0</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -110,8 +105,8 @@
                 <version>2.22.0</version>
                 <configuration>
                     <!--<parallel>methods</parallel>-->
-                    <!--<useUnlimitedThreads>true</useUnlimitedThreads>-->
                     <!--<threadCount>2</threadCount>-->
+                    <!--<useUnlimitedThreads>true</useUnlimitedThreads>-->
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

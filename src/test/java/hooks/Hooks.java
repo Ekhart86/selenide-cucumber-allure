@@ -1,23 +1,18 @@
 package hooks;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.qameta.allure.Allure;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import util.MyScreenRecorder;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import static com.codeborne.selenide.Selenide.clearBrowserCookies;
-import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static io.cucumber.core.event.Status.PASSED;
+import static runner.Constants.SELENOID_VIDEO_URL;
 import static util.ScreenshotMaker.makeScreenShoot;
-
 
 public class Hooks {
     private final static Logger logger = LoggerFactory.getLogger(Hooks.class);
@@ -26,41 +21,25 @@ public class Hooks {
     public void startScenario(Scenario scenario) {
         logger.info("------------------------------------------------------------");
         logger.info("Run scenario - '" + scenario.getName() + "'");
-        logger.info("------------------------------------------------------------");
     }
 
     @After
     public static void checkScenarioResult(Scenario scenario) {
-        logger.info("------------------------------------------------------------");
         System.out.println("Scenario '" + scenario.getName() + "' - " + scenario.getStatus());
         if (!scenario.getStatus().equals(PASSED)) {
             makeScreenShoot();
         }
-        logger.info("------------------------------------------------------------");
-        clearBrowserLocalStorage();
-        clearBrowserCookies();
-    }
-
-    @Before("@video")
-    public void startVideoRecording(Scenario scenario) throws Exception {
-        logger.info("Start recording the test video " + scenario.getName());
-        MyScreenRecorder.startRecording(scenario.getName());
-    }
-
-    @After("@video")
-    public static void attachVideo(Scenario scenario) throws Exception {
-        MyScreenRecorder.stopRecording();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH.mm.ss");
-        try {
-            File file = new File("target/recordings/" + scenario.getName() + ".avi");
-            byte[] fileContent = Files.readAllBytes(file.toPath());
-            Allure.getLifecycle().addAttachment(scenario.getName() + "-" + dateFormat.format(new Date()), "video/avi", "avi", fileContent);
-            logger.info("The video was successfully attached to the report");
-        } catch (Exception e) {
-            logger.info("Unable to attach video to the report " + e.getMessage());
-            e.printStackTrace();
+        if (Configuration.remote != null) {
+            RemoteWebDriver driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
+            Allure.getLifecycle().addAttachment("Видео", "text/html", "html", videoInHtml(driver.getSessionId().toString()).getBytes());
         }
-        clearBrowserLocalStorage();
-        clearBrowserCookies();
+        WebDriverRunner.getWebDriver().close();
+        logger.info("------------------------------------------------------------");
+    }
+
+    public static String videoInHtml(String sessionId) {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
+                + SELENOID_VIDEO_URL + sessionId + ".mp4"
+                + "' type='video/mp4'></video></body></html>";
     }
 }

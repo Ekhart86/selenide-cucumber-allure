@@ -7,6 +7,9 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static runner.Constants.BASE_SITE_URL;
+import static runner.Constants.SELENOID_URL;
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features/",
@@ -15,8 +18,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
         plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"})
 
 public class RunnerTest {
-    private static String baseRemoteUrl = "http://192.168.0.109";
-
     /**
      * Browser, remote mode and headless options
      * ​​are passed from the command line when running tests
@@ -24,27 +25,27 @@ public class RunnerTest {
      * -Dbrowser=chrome
      * -Dheadless=1
      * -Dremote=true
-     * -DremoteUrl=http://192.168.0.110
      * -Dparallel=methods
      * -DthreadCount=2 or -DuseUnlimitedThreads=true
      */
     @BeforeClass
     public static void initSettings() {
+        Configuration.baseUrl = BASE_SITE_URL;
         String headless = System.getProperty("headless") == null ? "0" : System.getProperty("headless");
         Configuration.headless = headless.equals("1");
         initRemoteSettings(System.getProperty("remote"), System.getProperty("remoteUrl"));
         Configuration.browser = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
         Configuration.browserSize = "1980x1024";
         Configuration.timeout = 20000;
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        Configuration.browserCapabilities = capabilities;
     }
 
     private static void initRemoteSettings(String remote, String remoteUrl) {
         if (remote != null && remote.equals("true")) {
-            baseRemoteUrl = remoteUrl == null ? baseRemoteUrl : remoteUrl;
-            Configuration.remote = baseRemoteUrl + ":4444/wd/hub";
+            Configuration.remote = SELENOID_URL + ":4444/wd/hub";
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.browserCapabilities = capabilities;
         }
     }
 }
