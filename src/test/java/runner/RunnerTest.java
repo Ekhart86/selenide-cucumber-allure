@@ -14,13 +14,16 @@ import static runner.Constants.SELENOID_URL;
 @CucumberOptions(
         features = "src/test/resources/features/",
         extraGlue = {"steps", "hooks"},
-        tags = {"@all"},
-        plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"})
+        tags = "@all",
+        plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
+        strict = true )
 
 public class RunnerTest {
+
     /**
-     * Browser, remote mode and headless options
+     * Browser type, remote mode and headless mode
      * ​​are passed from the command line when running tests
+     * <p>
      * mvn clean test
      * -Dbrowser=chrome
      * -Dheadless=1

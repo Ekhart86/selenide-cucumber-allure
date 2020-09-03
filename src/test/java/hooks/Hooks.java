@@ -2,15 +2,14 @@ package hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
-import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static io.cucumber.core.event.Status.PASSED;
 import static runner.Constants.SELENOID_VIDEO_URL;
 import static util.ScreenshotMaker.makeScreenShoot;
 
@@ -26,7 +25,7 @@ public class Hooks {
     @After
     public static void checkScenarioResult(Scenario scenario) {
         System.out.println("Scenario '" + scenario.getName() + "' - " + scenario.getStatus());
-        if (!scenario.getStatus().equals(PASSED)) {
+        if (scenario.isFailed()) {
             makeScreenShoot();
         }
         if (Configuration.remote != null) {
