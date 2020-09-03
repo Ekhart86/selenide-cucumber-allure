@@ -14,8 +14,6 @@ headless **-Dheadless=1** | (default 0)
 
 remote execute  **-Dremote=true** | (default false)
 
-remote new url  **-DremoteUrl=http://192.168.0.110** | (default set base remote url)
-
 run parallel    **-Dparallel=method** (default false)
 
 how parallel    **-DthreadCount=2** or **-DuseUnlimitedThreads=true** (default false)
@@ -46,6 +44,14 @@ you must add the following lines to the project settings:
 **System.setProperty("wdm.proxyPass", "password");**
 
 -------------------------------------------------------------------------------------------------------
+By default, tests are executed in one thread, if parallel execution is needed, then you need to uncomment the lines in POM.xml. 
+It is possible to set either the exact number of streams or unlimited.
+
+![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
+
+Parallel execution is possible only at the level of script files
+
+-------------------------------------------------------------------------------------------------------
 
 After running the tests, the local Allure server will be automatically launched,
 with a report on running the tests.
@@ -56,19 +62,7 @@ You can also adjust their size.
 ![cucumber_parallel](https://user-images.githubusercontent.com/25115868/91716912-2c102280-eb99-11ea-83e7-38e6c14f8919.PNG)
 
 -------------------------------------------------------------------------------------------------------
-If you need to record a video of the test running, mark this test with the @video annotation
 
-![video](https://user-images.githubusercontent.com/25115868/91716946-3c280200-eb99-11ea-9f80-e5fd9cd8172d.PNG)
-
-Then a video of the test execution will be attached to the report in the TearDown section, which you can download and watch.
-![video-2](https://user-images.githubusercontent.com/25115868/91716970-45b16a00-eb99-11ea-9a00-248ddef905a9.PNG)
-
-Video recording is only possible when running tests in a single thread! Remember this!
-
+If the tests are run on a remote machine in selenoid, then a video of the test execution will be attached to each test.
+![new_video](https://user-images.githubusercontent.com/25115868/92081608-fd2dc280-edcb-11ea-9295-4d9772e11603.PNG)
 --------------------------------------------------------------------------------------------------------
-By default, tests are executed in one thread, if parallel execution is needed, then you need to uncomment the lines in POM.xml. 
-It is possible to set either the exact number of streams or unlimited.
-
-![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
-
-Parallel execution is possible only at the level of script files.
