@@ -1,4 +1,4 @@
-# UI autotest project using Cucumber, Selenide, Allure, SpringBootTest with the ability to run in parallel.
+# UI autotest project using Cucumber, Selenide, Allure, SpringBootTest, Selenoid with the ability to run in parallel.
 
 
 
