@@ -33,13 +33,13 @@ public class RunnerTest {
         Configuration.baseUrl = BASE_SITE_URL;
         String headless = System.getProperty("headless") == null ? "0" : System.getProperty("headless");
         Configuration.headless = headless.equals("1");
-        initRemoteSettings(System.getProperty("remote"), System.getProperty("remoteUrl"));
+        initRemoteSettings(System.getProperty("remote"));
         Configuration.browser = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
         Configuration.browserSize = "1980x1024";
         Configuration.timeout = 20000;
     }
 
-    private static void initRemoteSettings(String remote, String remoteUrl) {
+    private static void initRemoteSettings(String remote) {
         if (remote != null && remote.equals("true")) {
             Configuration.remote = SELENOID_URL + ":4444/wd/hub";
             DesiredCapabilities capabilities = new DesiredCapabilities();
