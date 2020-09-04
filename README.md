@@ -4,23 +4,25 @@ A project using Cucumber, Selenide, Allure, SpringBootTest, Selenoid with the ab
 
 
 
-Run test - **mvn clean test**
+Run test: mvn clean test
 
 
 Available parameters:
 
 
-+ **-Dbrowser=firefox** | (default chrome)
++ -Dbrowser=firefox | (default chrome)
 
-+ **-Dheadless=1** | (default 0)
++ -Dheadless=1** | (default 0)
 
-+ **-Dremote=true** | (default false)
++ -Dremote=true** | (default false)
 
-+ **-Dparallel=method** (default false)
++ -Dparallel=method** (default false)
 
-+ **-DthreadCount=2** or **-DuseUnlimitedThreads=true** (default false)
++ -DthreadCount=2** or -DuseUnlimitedThreads=true (default false)
 
-Generate allure report - **mvn allure:serve**
+
+
+Generate allure report: mvn allure:serve
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -39,12 +41,13 @@ The Internet must be available on the computer without restrictions.
 If your computer has Internet access via Proxy server, 
 you must add the following lines to the project settings:
 
-**System.setProperty("wdm.proxy", "url");**
+```
+System.setProperty("wdm.proxy", "url");
 
-**System.setProperty("wdm.proxyUser", "user");**
+System.setProperty("wdm.proxyUser", "user");
 
-**System.setProperty("wdm.proxyPass", "password");**
-
+System.setProperty("wdm.proxyPass", "password");
+```
 -------------------------------------------------------------------------------------------------------
 
 By default, tests are executed in one thread.
