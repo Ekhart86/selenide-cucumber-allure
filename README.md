@@ -16,9 +16,9 @@ Available parameters:
 
 + -Dremote=true | (default false)
 
-+ -Dparallel=method (default false)
++ -Dparallel=method | (default false)
 
-+ -DthreadCount=2 or -DuseUnlimitedThreads=true (default false)
++ -DthreadCount=2 or -DuseUnlimitedThreads=true | (default false)
 
 
 
