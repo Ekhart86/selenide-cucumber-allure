@@ -1,4 +1,6 @@
-# UI autotest project using Cucumber, Selenide, Allure, SpringBootTest, Selenoid with the ability to run in parallel.
+
+A project using Cucumber, Selenide, Allure, SpringBootTest, Selenoid with the ability to run tests in parallel, in docker containers.
+ -------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -8,15 +10,15 @@ Run test - **mvn clean test**
 Available parameters:
 
 
-browser **-Dbrowser=firefox** | (default chrome)
++ **-Dbrowser=firefox** | (default chrome)
 
-headless **-Dheadless=1** | (default 0)
++ **-Dheadless=1** | (default 0)
 
-remote execute  **-Dremote=true** | (default false)
++ **-Dremote=true** | (default false)
 
-run parallel    **-Dparallel=method** (default false)
++ **-Dparallel=method** (default false)
 
-how parallel    **-DthreadCount=2** or **-DuseUnlimitedThreads=true** (default false)
++ **-DthreadCount=2** or **-DuseUnlimitedThreads=true** (default false)
 
 Generate allure report - **mvn allure:serve**
 
@@ -44,13 +46,19 @@ you must add the following lines to the project settings:
 **System.setProperty("wdm.proxyPass", "password");**
 
 -------------------------------------------------------------------------------------------------------
-By default, tests are executed in one thread, if parallel execution is needed, then you need to uncomment the lines in POM.xml. 
 
-It is possible to set either the exact number of streams or unlimited.
+By default, tests are executed in one thread.
 
-![Parallel](https://user-images.githubusercontent.com/25115868/91717205-b193d280-eb99-11ea-8c89-1557d98a55b5.PNG)
+If constant parallel execution is required, then you need to uncomment the lines in the POM.xml.
 
 Parallel execution is possible only at the level of script files
+
+Set up the configuration configuration maven-surefire-plugin:
+```
+   <parallel>methods</parallel>
+   <threadCount>2</threadCount>
+   <useUnlimitedThreads>true</useUnlimitedThreads>
+```
 
 -------------------------------------------------------------------------------------------------------
 
@@ -58,11 +66,11 @@ After running the tests, the local Allure server will be automatically launched,
 
 If the test ends with an error, then a screenshot of the screen will be attached to this test
 
-![ERROR](https://user-images.githubusercontent.com/25115868/92082291-fce1f700-edcc-11ea-8bed-cbe6b38f8b39.PNG)
+![Last-screen](https://user-images.githubusercontent.com/25115868/92218097-43088a80-eea1-11ea-902d-d0e55cad28f8.PNG)
 
 -------------------------------------------------------------------------------------------------------
 
 If the tests are run on a remote machine in selenoid, then a video of the test execution will be attached to each test.
 
-![new_video](https://user-images.githubusercontent.com/25115868/92081608-fd2dc280-edcb-11ea-9295-4d9772e11603.PNG)
---------------------------------------------------------------------------------------------------------
+![last-video](https://user-images.githubusercontent.com/25115868/92218131-51ef3d00-eea1-11ea-8aee-10432abdf247.PNG)
+
