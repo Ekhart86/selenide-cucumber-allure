@@ -14,13 +14,13 @@ public class LoginSteps extends PageSet {
         loginPage.signInButton.click();
     }
 
-    @Тогда("пользователь успешно авторизовался")
-    public void пользовательУспешноАвторизовался() {
-        loginPage.successMessage.shouldHave(text("You logged into a secure area!"));
+    @Тогда("отображается сообщение о некорректном логине или пароле")
+    public void отображаетсяСообщениеОНекорректномЛогинеИлиПароле() {
+        loginPage.successMessage.shouldHave(text("Your username is invalid!"));
     }
 
-    @Тогда("пользователь не смог авторизоваться")
-    public void пользовательНеСмогАвторизоваться() {
-        loginPage.successMessage.shouldHave(text("Your username is invalid!"));
+    @Тогда("отображается сообщение об успешной авторизации")
+    public void отображаетсяСообщениеОбУспешнойАвторизации() {
+        loginPage.successMessage.shouldHave(text("You logged into a secure area!test"));
     }
 }

@@ -7,19 +7,16 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static runner.Constants.SELENOID_VIDEO_URL;
 import static util.ScreenshotMaker.makeScreenShoot;
 
 public class Hooks {
-    private final static Logger logger = LoggerFactory.getLogger(Hooks.class);
 
     @Before
     public void startScenario(Scenario scenario) {
-        logger.info("------------------------------------------------------------");
-        logger.info("Run scenario - '" + scenario.getName() + "'");
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Run scenario - '" + scenario.getName() + "'");
     }
 
     @After
@@ -32,8 +29,8 @@ public class Hooks {
             RemoteWebDriver driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
             Allure.getLifecycle().addAttachment("Видео", "text/html", "html", videoInHtml(driver.getSessionId().toString()).getBytes());
         }
-        WebDriverRunner.getWebDriver().close();
-        logger.info("------------------------------------------------------------");
+        WebDriverRunner.getWebDriver().quit();
+        System.out.println("------------------------------------------------------------");
     }
 
     public static String videoInHtml(String sessionId) {
