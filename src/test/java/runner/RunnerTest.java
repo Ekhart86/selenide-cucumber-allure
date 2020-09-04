@@ -31,6 +31,7 @@ public class RunnerTest {
      * -Dparallel=methods
      * -DthreadCount=2 or -DuseUnlimitedThreads=true
      */
+
     @BeforeClass
     public static void initSettings() {
         Configuration.baseUrl = BASE_SITE_URL;

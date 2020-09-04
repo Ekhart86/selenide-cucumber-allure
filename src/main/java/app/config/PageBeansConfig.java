@@ -7,10 +7,6 @@ import org.springframework.context.annotation.Scope;
 
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 
-/**
- * SCOPE_CUCUMBER_GLUE - tells Cucumber to remove this bean
- * and recreate a new one if necessary after each scenario.
- */
 @Configuration
 public class PageBeansConfig {
     @Bean
