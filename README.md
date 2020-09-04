@@ -12,13 +12,13 @@ Available parameters:
 
 + -Dbrowser=firefox | (default chrome)
 
-+ -Dheadless=1** | (default 0)
++ -Dheadless=1 | (default 0)
 
-+ -Dremote=true** | (default false)
++ -Dremote=true | (default false)
 
-+ -Dparallel=method** (default false)
++ -Dparallel=method (default false)
 
-+ -DthreadCount=2** or -DuseUnlimitedThreads=true (default false)
++ -DthreadCount=2 or -DuseUnlimitedThreads=true (default false)
 
 
 
