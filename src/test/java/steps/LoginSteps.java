@@ -21,6 +21,6 @@ public class LoginSteps extends PageSet {
 
     @Тогда("отображается сообщение об успешной авторизации")
     public void отображаетсяСообщениеОбУспешнойАвторизации() {
-        loginPage.successMessage.shouldHave(text("You logged into a secure area!test"));
+        loginPage.successMessage.shouldHave(text("You logged into a secure area!"));
     }
 }
