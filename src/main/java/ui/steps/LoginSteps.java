@@ -1,4 +1,4 @@
-package steps;
+package ui.steps;
 
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;

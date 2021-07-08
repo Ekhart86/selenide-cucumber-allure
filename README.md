@@ -1,5 +1,5 @@
 
-A project using Cucumber, Selenide, Allure, SpringBootTest, Selenoid with the ability to run tests in parallel, in docker containers.
+A project using Cucumber, Selenide, Allure, Selenoid with the ability to run tests in parallel, in docker containers.
  -------------------------------------------------------------------------------------------------------------------
 
 
@@ -25,8 +25,6 @@ Available parameters:
 Generate allure report: mvn allure:serve
 
 ------------------------------------------------------------------------------------------------------------
-
-The project uses Spring Context to interact with application pages
 
 Java 8 and Maven 3.6+ must be installed on your computer before running tests.
 

@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static util.SizeReducer.resize;
 
 public class ScreenshotMaker {
 
@@ -23,7 +22,7 @@ public class ScreenshotMaker {
         File scrFile = ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.FILE);
         byte[] fileContent = new byte[0];
         try {
-            fileContent = toByteArrayAutoClosable(resize(scrFile, 1.0));
+            fileContent = toByteArrayAutoClosable(SizeReducer.resize(scrFile, 1.0));
         } catch (IOException e) {
             logger.error(e.getMessage());
         }

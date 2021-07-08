@@ -6,17 +6,17 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import properties.Properties;
+import properties.PropertiesLoader;
 
-import static runner.Constants.BASE_SITE_URL;
-import static runner.Constants.SELENOID_URL;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features/",
-        extraGlue = {"steps", "hooks"},
+        extraGlue = {"api/steps", "database/steps", "ui/steps", "hooks"},
         tags = "@all",
         plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
-        strict = true )
+        strict = true)
 
 public class RunnerTest {
 
@@ -34,7 +34,10 @@ public class RunnerTest {
 
     @BeforeClass
     public static void initSettings() {
-        Configuration.baseUrl = BASE_SITE_URL;
+        PropertiesLoader.loadProperties();
+        Configuration.baseUrl = System.getProperty(Properties.BASE_URL);
+        System.out.println(System.getProperty(Properties.BASE_URL));
+        System.out.println(System.getProperty(Properties.DB_SERVER_NAME));
         String headless = System.getProperty("headless") == null ? "0" : System.getProperty("headless");
         Configuration.headless = headless.equals("1");
         initRemoteSettings(System.getProperty("remote"));
@@ -45,7 +48,7 @@ public class RunnerTest {
 
     private static void initRemoteSettings(String remote) {
         if (remote != null && remote.equals("true")) {
-            Configuration.remote = SELENOID_URL + ":4444/wd/hub";
+            Configuration.remote = System.getProperty(Properties.SELENOID_URL) + ":4444/wd/hub";
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
