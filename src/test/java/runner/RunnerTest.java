@@ -36,8 +36,6 @@ public class RunnerTest {
     public static void initSettings() {
         PropertiesLoader.loadProperties();
         Configuration.baseUrl = System.getProperty(Properties.BASE_URL);
-        System.out.println(System.getProperty(Properties.BASE_URL));
-        System.out.println(System.getProperty(Properties.DB_SERVER_NAME));
         String headless = System.getProperty("headless") == null ? "0" : System.getProperty("headless");
         Configuration.headless = headless.equals("1");
         initRemoteSettings(System.getProperty("remote"));

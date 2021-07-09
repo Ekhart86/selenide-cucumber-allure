@@ -3,9 +3,9 @@ A project using Cucumber, Selenide, Allure, Selenoid with the ability to run tes
  -------------------------------------------------------------------------------------------------------------------
 
 
-
 Run test: mvn clean test
 
+By default, tests execute in one thread.
 
 Available parameters:
 
@@ -16,10 +16,7 @@ Available parameters:
 
 + -Dremote=true | (default false)
 
-+ -Dparallel=method | (default false)
-
-+ -DthreadCount=2 or -DuseUnlimitedThreads=true | (default false)
-
++ -DthreadCount=2 | (default 1)
 
 
 Generate allure report: mvn allure:serve
@@ -46,21 +43,6 @@ System.setProperty("wdm.proxyUser", "user");
 
 System.setProperty("wdm.proxyPass", "password");
 ```
--------------------------------------------------------------------------------------------------------
-
-By default, tests are executed in one thread.
-
-If constant parallel execution is required, then you need to uncomment the lines in the POM.xml.
-
-Parallel execution is possible only at the level of script files
-
-Set up the configuration configuration maven-surefire-plugin:
-```
-   <parallel>methods</parallel>
-   <threadCount>2</threadCount>
-   <useUnlimitedThreads>true</useUnlimitedThreads>
-```
-
 -------------------------------------------------------------------------------------------------------
 
 After running the tests, the local Allure server will be automatically launched, with a report on running the tests.

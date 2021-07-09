@@ -12,6 +12,7 @@
         <project.encoding>UTF-8</project.encoding>
         <aspectj.version>1.9.1</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <threadCount>1</threadCount>
     </properties>
 
     <dependencies>
@@ -73,10 +74,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
                 <configuration>
-                    <parallel>classes</parallel>
-                    <threadCount>2</threadCount>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <parallel>methods</parallel>
+                    <threadCount>${threadCount}</threadCount>
+                    <perCoreThreadCount>false</perCoreThreadCount>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
