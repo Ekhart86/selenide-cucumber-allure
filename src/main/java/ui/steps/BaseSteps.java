@@ -1,6 +1,7 @@
 package ui.steps;
 
 import io.cucumber.java.ru.Когда;
+import ui.flow.PageSet;
 
 import static com.codeborne.selenide.Selenide.open;
 

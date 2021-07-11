@@ -2,25 +2,28 @@ package ui.steps;
 
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
+import ui.flow.LoginFlow;
 
-import static com.codeborne.selenide.Condition.text;
 
-public class LoginSteps extends PageSet {
+public class LoginSteps {
+
+    LoginFlow loginFlow = new LoginFlow();
 
     @Когда("авторизуемся в приложении с логином {string} и паролем {string}")
     public void авторизуемсяВПриложенииСЛогиномИПаролем(String login, String password) {
-        loginPage.loginField.setValue(login);
-        loginPage.passwordField.setValue(password);
-        loginPage.signInButton.click();
+        loginFlow.setLogin(login);
+        loginFlow.setPassword(password);
+        loginFlow.clickSignInButton();
     }
 
     @Тогда("отображается сообщение о некорректном логине или пароле")
     public void отображаетсяСообщениеОНекорректномЛогинеИлиПароле() {
-        loginPage.successMessage.shouldHave(text("Your username is invalid!"));
+        loginFlow.checkFailLoginMessage();
     }
 
     @Тогда("отображается сообщение об успешной авторизации")
     public void отображаетсяСообщениеОбУспешнойАвторизации() {
-        loginPage.successMessage.shouldHave(text("You logged into a secure area!"));
+        loginFlow.checkSuccessLoginMessage();
     }
+
 }

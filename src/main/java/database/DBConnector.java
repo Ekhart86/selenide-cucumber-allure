@@ -15,7 +15,7 @@ public class DBConnector {
     private static final Logger logger = LoggerFactory.getLogger(DBConnector.class);
 
     private static DBConnector instance = null;
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     private DBConnector() {
         this.dataSource = createDataSource();

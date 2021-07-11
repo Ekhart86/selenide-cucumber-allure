@@ -1,4 +1,4 @@
-package ui.steps;
+package ui.flow;
 
 
 import ui.pages.LoginPage;
