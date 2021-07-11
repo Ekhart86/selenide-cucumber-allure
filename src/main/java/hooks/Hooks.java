@@ -8,12 +8,16 @@ import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import properties.Properties;
 import properties.PropertiesLoader;
 import util.ScreenshotMaker;
 import util.TestContext;
 
 public class Hooks {
+
+    private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
 
     /**
      * Browser type, remote mode and headless mode
@@ -37,8 +41,7 @@ public class Hooks {
         Configuration.browser = System.getProperty(Properties.TEST_BROWSER);
         Configuration.browserSize = "1980x1024";
         Configuration.timeout = 20000;
-        System.out.println("------------------------------------------------------------");
-        System.out.println("Run scenario - '" + scenario.getName() + "'");
+        logger.info("Run scenario - '" + scenario.getName() + "'");
     }
 
     private static void initRemoteSettings(boolean remote) {
@@ -53,7 +56,7 @@ public class Hooks {
 
     @After(value = "not @API")
     public static void checkScenarioResult(Scenario scenario) {
-        System.out.println("Scenario '" + scenario.getName() + "' - " + scenario.getStatus());
+        logger.info("Scenario '" + scenario.getName() + "' - " + scenario.getStatus());
         if (scenario.isFailed()) {
             ScreenshotMaker.makeScreenShoot();
         }
@@ -61,8 +64,7 @@ public class Hooks {
             RemoteWebDriver driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
             Allure.getLifecycle().addAttachment("Видео", "text/html", "html", videoInHtml(driver.getSessionId().toString()).getBytes());
         }
-        WebDriverRunner.getWebDriver().quit();
-        System.out.println("------------------------------------------------------------");
+        WebDriverRunner.webdriverContainer.getWebDriver().quit();
     }
 
     public static String videoInHtml(String sessionId) {

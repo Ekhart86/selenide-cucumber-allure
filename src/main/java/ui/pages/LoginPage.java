@@ -1,14 +1,16 @@
 package ui.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$;
 
+@Getter
 public class LoginPage {
 
-    public SelenideElement loginField = $("#username");
-    public SelenideElement passwordField = $("#password");
-    public SelenideElement signInButton = $("button.radius");
-    public SelenideElement successMessage = $("#flash");
+    private final SelenideElement loginField = $("#username");
+    private final SelenideElement passwordField = $("#password");
+    private final SelenideElement signInButton = $("button.radius");
+    private final SelenideElement resultMessage = $("#flash");
 
 }
