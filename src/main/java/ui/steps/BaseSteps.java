@@ -1,14 +1,13 @@
 package ui.steps;
 
-import io.cucumber.java.ru.Когда;
-import ui.flow.PageSet;
+import io.cucumber.java.en.Given;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class BaseSteps extends PageSet {
+public class BaseSteps {
 
-    @Когда("открываем страницу {string}")
-    public void открываемСтраницу(String url) {
-        open(url);
+    @Given("user open page {string}")
+    public void userOpenPageLogin(String page) {
+        open(page);
     }
 }

@@ -11,5 +11,8 @@ public final class Properties {
     public static final String DB_ALLOW_UPDATE = "db.allow.update";
     public final static String SELENOID_URL = "selenoid.url";
     public final static String SELENOID_VIDEO_URL = SELENOID_URL + ":4444/video/";
+    public final static String TEST_BROWSER = "test.browser";
+    public final static String TEST_HEADLESS = "test.headless";
+    public final static String TEST_REMOTE = "test.remote";
 
 }

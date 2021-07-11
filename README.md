@@ -9,14 +9,11 @@ By default, tests execute in one thread.
 
 Available parameters:
 
-
-+ -Dbrowser=firefox | (default chrome)
-
-+ -Dheadless=1 | (default 0)
-
-+ -Dremote=true | (default false)
-
 + -DthreadCount=2 | (default 1)
+
++ -Dcucumber.options="--tags @LoginFailed" | (default @all)
+
+The rest of the test settings are located in the property files in the 'src/main/resources/properties' folder
 
 
 Generate allure report: mvn allure:serve
@@ -32,18 +29,6 @@ The project uses the Selenide framework. Selenide uses WebDriverManager
 which itself downloads the latest version of the browser that you specified in the configuration. 
 By default, this is the latest version of the Chrome browser.
 
-The Internet must be available on the computer without restrictions. 
-If your computer has Internet access via Proxy server, 
-you must add the following lines to the project settings:
-
-```
-System.setProperty("wdm.proxy", "url");
-
-System.setProperty("wdm.proxyUser", "user");
-
-System.setProperty("wdm.proxyPass", "password");
-```
--------------------------------------------------------------------------------------------------------
 
 After running the tests, the local Allure server will be automatically launched, with a report on running the tests.
 

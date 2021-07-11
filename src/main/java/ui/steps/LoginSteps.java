@@ -1,28 +1,44 @@
 package ui.steps;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.java.ru.Когда;
-import io.cucumber.java.ru.Тогда;
 import ui.flow.LoginFlow;
-
 
 public class LoginSteps {
 
-    LoginFlow loginFlow = new LoginFlow();
+    private final LoginFlow loginFlow = new LoginFlow();
 
-    @Когда("авторизуемся в приложении с логином {string} и паролем {string}")
-    public void авторизуемсяВПриложенииСЛогиномИПаролем(String login, String password) {
+    @Когда("user log in with username {string} and password {string}")
+    public void userLoginWithUsernameAndPassword(String login, String password) {
         loginFlow.setLogin(login);
         loginFlow.setPassword(password);
         loginFlow.clickSignInButton();
     }
 
-    @Тогда("отображается сообщение о некорректном логине или пароле")
-    public void отображаетсяСообщениеОНекорректномЛогинеИлиПароле() {
+    @When("user sets login {string}")
+    public void userSetsLogin(String login) {
+        loginFlow.setLogin(login);
+    }
+
+    @And("user sets password {string}")
+    public void userSetsPassword(String password) {
+        loginFlow.setPassword(password);
+    }
+
+    @And("user click on Sign in button")
+    public void userClickOnSignInButton() {
+        loginFlow.clickSignInButton();
+    }
+
+    @Then("message about an incorrect username or password is displayed")
+    public void messageAboutAnIncorrectUsernameOrPasswordIsDisplayed() {
         loginFlow.checkFailLoginMessage();
     }
 
-    @Тогда("отображается сообщение об успешной авторизации")
-    public void отображаетсяСообщениеОбУспешнойАвторизации() {
+    @Then("message about successful authorization is displayed")
+    public void messageAboutSuccessfulAuthorizationIsDisplayed() {
         loginFlow.checkSuccessLoginMessage();
     }
 

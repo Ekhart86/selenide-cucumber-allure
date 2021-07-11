@@ -1,8 +1,12 @@
 package ui.flow;
 
+import ui.pages.LoginPage;
+
 import static com.codeborne.selenide.Condition.text;
 
-public class LoginFlow extends PageSet {
+public class LoginFlow {
+
+    private final LoginPage loginPage = new LoginPage();
 
     public void setLogin(String login) {
         loginPage.loginField.setValue(login);
