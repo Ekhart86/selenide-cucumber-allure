@@ -15,18 +15,6 @@ import properties.PropertiesLoader;
 import util.ScreenshotMaker;
 import util.TestContext;
 
-/**
- * Browser type, remote mode and headless mode
- * ​​are passed from the command line when running tests
- * <p>
- * mvn clean test
- * -Dbrowser=chrome
- * -Dheadless=1
- * -Dremote=true
- * -Dparallel=methods
- * -DthreadCount=2 or -DuseUnlimitedThreads=true
- */
-
 public class Hooks {
 
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);

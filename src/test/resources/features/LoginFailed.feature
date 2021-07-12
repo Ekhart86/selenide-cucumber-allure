@@ -4,7 +4,7 @@ Feature: Validate failed login on the Login page
   @Login
   @LoginFailed
   Scenario: Validate failed login
-    Given user open page '/login'
+    Given user open 'Login Page'
     When user sets login 'failed'
     And user sets password 'failed'
     And user click on Sign in button
