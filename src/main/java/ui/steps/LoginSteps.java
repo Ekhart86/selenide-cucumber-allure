@@ -1,16 +1,14 @@
 package ui.steps;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.ru.Когда;
 import ui.flow.LoginFlow;
 
 public class LoginSteps {
 
     private final LoginFlow loginFlow = new LoginFlow();
 
-    @Когда("user log in with username {string} and password {string}")
+    @When("user log in with username {string} and password {string}")
     public void userLoginWithUsernameAndPassword(String login, String password) {
         loginFlow.setLogin(login);
         loginFlow.setPassword(password);
@@ -22,12 +20,12 @@ public class LoginSteps {
         loginFlow.setLogin(login);
     }
 
-    @And("user sets password {string}")
+    @When("user sets password {string}")
     public void userSetsPassword(String password) {
         loginFlow.setPassword(password);
     }
 
-    @And("user click on Sign in button")
+    @When("user click on Sign in button")
     public void userClickOnSignInButton() {
         loginFlow.clickSignInButton();
     }
