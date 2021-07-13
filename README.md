@@ -93,3 +93,6 @@ If the test ends with an error, then a screenshot of the screen will be attached
 
 ![Снимок экрана 2021-07-12 в 01 00 12](https://user-images.githubusercontent.com/25115868/125211107-ab3bb000-e2ac-11eb-9267-c7af05afc63b.png)
 
+![Снимок экрана 2021-07-13 в 21 18 40](https://user-images.githubusercontent.com/25115868/125504754-9677fb89-74bb-448f-8aea-1a505c679c9a.png)
+
+![Снимок экрана 2021-07-13 в 21 19 01](https://user-images.githubusercontent.com/25115868/125504798-dce24384-ef4c-42b1-b951-1a520b097a68.png)
