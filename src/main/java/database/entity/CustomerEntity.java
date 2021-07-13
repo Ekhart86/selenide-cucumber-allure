@@ -11,6 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 public class CustomerEntity {
 
+    private String id;
     private String age;
     private String firstName;
     private String lastName;
