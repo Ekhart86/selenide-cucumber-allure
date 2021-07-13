@@ -11,6 +11,7 @@ Feature: Validate failed login on the Login page
     And user click on Sign in button
     Then message about successful authorization is displayed
 
+
   @UI
   @Login
   @LoginFailed

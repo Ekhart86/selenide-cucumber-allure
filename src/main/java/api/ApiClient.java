@@ -3,6 +3,7 @@ package api;
 import com.codeborne.selenide.WebDriverRunner;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.Cookie;
@@ -31,6 +32,7 @@ public class ApiClient {
             .setConfig(newConfig().encoderConfig(encoderConfig().defaultContentCharset(StandardCharsets.UTF_8)))
             .setBaseUri(System.getProperty(Properties.BASE_URL))
             .setRelaxedHTTPSValidation()
+            .addFilter(new AllureRestAssured())
             .log(LogDetail.ALL);
 
     public ApiClient build() {
@@ -74,6 +76,11 @@ public class ApiClient {
 
     public ApiClient addCookies(Cookies cookies) {
         requestSpecBuilder.addCookies(cookies);
+        return this;
+    }
+
+    public ApiClient setBaseURL(String baseUri) {
+        requestSpecBuilder.setBaseUri(baseUri);
         return this;
     }
 
