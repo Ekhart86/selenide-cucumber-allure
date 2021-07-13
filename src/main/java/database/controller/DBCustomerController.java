@@ -1,7 +1,7 @@
 package database.controller;
 
 import database.DBConnector;
-import database.model.Customer;
+import database.entity.CustomerEntity;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.slf4j.Logger;
@@ -24,8 +24,8 @@ public class DBCustomerController {
 
     public static boolean isExistCustomer(String age, String firstName, String lastName) throws SQLException {
         logger.info("SELECT Customer with parameters: age = {}, firstName = {}, lastName = {}", age, firstName, lastName);
-        ResultSetHandler<List<Customer>> h = new BeanListHandler<>(Customer.class);
-        return DBConnector.getInstance().getQueryResults(IS_EXIST_CUSTOMER, h, age, firstName, lastName).size() > 0;
+        ResultSetHandler<List<CustomerEntity>> customerEntityBeanList = new BeanListHandler<>(CustomerEntity.class);
+        return DBConnector.getInstance().getQueryResults(IS_EXIST_CUSTOMER, customerEntityBeanList, age, firstName, lastName).size() > 0;
     }
 
 }

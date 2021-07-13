@@ -19,10 +19,14 @@ public class Hooks {
 
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
 
-    @Before(value = "not @API")
-    public static void initSettings(Scenario scenario) {
+    @Before
+    public static void innitProperties() {
         TestContext.resetContext();
         PropertiesLoader.loadProperties();
+    }
+
+    @Before(value = "@UI")
+    public static void initSettings(Scenario scenario) {
         Configuration.baseUrl = System.getProperty(Properties.BASE_URL);
         Configuration.headless = Boolean.parseBoolean(System.getProperty(Properties.TEST_HEADLESS));
         initRemoteSettings(Boolean.parseBoolean(System.getProperty(Properties.TEST_REMOTE)));
@@ -42,7 +46,7 @@ public class Hooks {
         }
     }
 
-    @After(value = "not @API")
+    @After(value = "@UI")
     public static void checkScenarioResult(Scenario scenario) {
         logger.info("Scenario '" + scenario.getName() + "' - " + scenario.getStatus());
         if (scenario.isFailed()) {

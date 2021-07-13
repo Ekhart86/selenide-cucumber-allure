@@ -1,4 +1,4 @@
-package database.model;
+package database.entity;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
+public class CustomerEntity {
 
     private String age;
     private String firstName;
